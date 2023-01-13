@@ -1,0 +1,13 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "no-console": "off",
+    "no-debugger": "off",
+    "vue/component-tags-order": [
+      2,
+      {
+        "order": ["template", "script", "style[lang]"]
+      }
+    ]
+  }
+}
