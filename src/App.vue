@@ -10,6 +10,18 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios'
+
+const users = ref([])
+
+onMounted(() => {
+  axios.get('/api/getUsers').then((res) => {
+    users.value = res.data.data
+    console.log('users', users)
+  }).catch((err) => {
+    console.log(err)
+  })
+})
 </script>
 
 <style scoped>
