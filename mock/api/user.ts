@@ -1,6 +1,6 @@
 import type { MockMethod } from 'vite-plugin-mock'
 // import { Random, mock } from 'mockjs'
-import { resultSuccess } from '../_util'
+import { resultSuccess } from '../util'
 
 /**
  * 在这个文件使用mockjs模拟接口数据返回
