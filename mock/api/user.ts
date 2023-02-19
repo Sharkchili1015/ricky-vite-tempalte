@@ -8,7 +8,7 @@ import { resultSuccess } from '../util'
  * 在CommonMockService中实现interface
  * 在store中调用CommonMockService中的方法即可
  */
-const userInfo = ['tom', 'jerry']
+const userInfo = ['tom', 'jerry', 'Ricky']
 export default [
   {
     url: '/api/getUsers',
