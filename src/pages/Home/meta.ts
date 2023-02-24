@@ -1,4 +1,4 @@
 export default {
-  name: 'Home',
+  title: '首页',
   permissions: ['admin', 'user'],
 }

@@ -1,4 +1,4 @@
 export default {
-  name: 'Login',
+  title: '登录',
   permissions: ['admin', 'user'],
 }

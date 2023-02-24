@@ -1,4 +1,4 @@
 export default {
-  name: 'sub',
+  title: '二级目录',
   permissions: ['admin', 'user'],
 }

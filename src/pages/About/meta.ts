@@ -1,4 +1,4 @@
 export default {
-  name: 'About',
+  title: '关于',
   permissions: ['admin', 'user'],
 }
