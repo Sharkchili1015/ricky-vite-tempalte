@@ -1,22 +1,19 @@
 import { createApp } from 'vue'
 import './style.css'
-import ElementPlus from 'element-plus'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import { createPinia } from 'pinia'
+
 import App from './App.vue'
-import { router, setupRouter } from './router'
+import { setupRouter } from './router'
 import 'element-plus/dist/index.css'
 import 'virtual:windi.css'
+import { setupStore } from './store'
+import { setupElementPlus } from './utils/registerElement'
 
-const app = createApp(App)
-for (const [key, component] of Object.entries(ElementPlusIconsVue))
-  app.component(key, component)
-
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
-// Configure routing
-// 配置路由
-console.log(router)
-setupRouter(app)
-app.use(ElementPlus).use(pinia).mount('#app')
+// 这里使用函数的方法进行注册，是为了处理一下异步的情况，可以使用async/await
+function init() {
+  const app = createApp(App)
+  setupRouter(app)
+  setupStore(app)
+  setupElementPlus(app)
+  app.mount('#app')
+}
+init()
