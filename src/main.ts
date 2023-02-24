@@ -12,7 +12,7 @@ import 'virtual:windi.css'
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue))
   app.component(key, component)
-
+// 测试合并
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 // Configure routing
