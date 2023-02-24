@@ -19,7 +19,7 @@ export const autoImportPlugin = [
       'vue-router',
       '@vueuse/core',
     ],
-    dirs: ['src/hooks', 'src/utils', 'src/service/api', 'src/service/apiModel'],
+    dirs: ['src/hooks', 'src/utils'],
     defaultExportByFilename: false,
     vueTemplate: false,
     eslintrc: {
@@ -34,7 +34,7 @@ export const autoImportPlugin = [
       })],
   }),
   Components({
-    dirs: ['src/components', 'src/components/Icons'],
+    dirs: ['src/components'],
     resolvers: [ElementPlusResolver()],
   }),
   Icons({

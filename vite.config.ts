@@ -32,10 +32,10 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 3000,
+    port: 8808,
     open: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'http://localhost:8808',
     },
   },
 })

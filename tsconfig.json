@@ -27,5 +27,6 @@
     "_vitePlugins/*.ts"
   ],
   "exclude": ["node_modules", ".vscode-test"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "types": ["vite/client"] // 👈 add this
 }

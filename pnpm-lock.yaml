@@ -43,7 +43,6 @@ dependencies:
   element-plus: registry.npmmirror.com/element-plus/2.2.28_vue@3.2.45
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
   pinia: registry.npmmirror.com/pinia/2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
-  pinia-plugin-persistedstate: registry.npmmirror.com/pinia-plugin-persistedstate/3.0.2_pinia@2.0.28
   vue: registry.npmmirror.com/vue/3.2.45
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.45
 
@@ -56,6 +55,7 @@ devDependencies:
   '@vueuse/router': registry.npmmirror.com/@vueuse/router/9.10.0_xsxatmlnmmg5bcuv3xdnj6fj7y
   eslint: registry.npmmirror.com/eslint/8.31.0
   mockjs: 1.1.0
+  pinia-plugin-persistedstate: registry.npmmirror.com/pinia-plugin-persistedstate/3.0.2_pinia@2.0.28
   qs: 6.11.0
   sass: registry.npmmirror.com/sass/1.57.1
   typescript: registry.npmmirror.com/typescript/4.9.4
@@ -4414,7 +4414,7 @@ packages:
       pinia: ^2.0.0
     dependencies:
       pinia: registry.npmmirror.com/pinia/2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
-    dev: false
+    dev: true
 
   registry.npmmirror.com/pinia/2.0.28_prq2uz4lho2pwp6irk4cfkrxwu:
     resolution: {integrity: sha512-YClq9DkqCblq9rlyUual7ezMu/iICWdBtfJrDt4oWU9Zxpijyz7xB2xTwx57DaBQ96UGvvTMORzALr+iO5PVMw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pinia/-/pinia-2.0.28.tgz}
@@ -4435,7 +4435,6 @@ packages:
       typescript: registry.npmmirror.com/typescript/4.9.4
       vue: registry.npmmirror.com/vue/3.2.45
       vue-demi: registry.npmmirror.com/vue-demi/0.13.11_vue@3.2.45
-    dev: false
 
   registry.npmmirror.com/pkg-types/1.0.1:
     resolution: {integrity: sha512-jHv9HB+Ho7dj6ItwppRDDl0iZRYBD0jsakHXtFgoLr+cHSF6xC+QL54sJmWxyGxOLYSHm0afhXhXcQDQqH9z8g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pkg-types/-/pkg-types-1.0.1.tgz}
