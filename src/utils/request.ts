@@ -1,7 +1,6 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { defaults } from 'lodash-es'
-import { useUserStore } from '@store/mouldes/user'
 interface RequestResult<T = unknown> {
   msg: string | undefined
   code: string
@@ -29,23 +28,14 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
 })
 
 instance.interceptors.response.use((res) => {
-  const data = res.data
-  const code = data.code
-  if (code !== '200') {
-    if (code === '403') {
-      localStorage.removeItem('token')
-      window.location.reload()
-    }
-  }
-  return res
+  return res.data.data
 })
 
 function request<T>(
   url: string,
   config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<RequestResult<T>>> {
-  const { getToken } = useUserStore()
-  const token = getToken()
+  const token = '123123123123123'
   const headers = config?.headers ?? ({} as Record<string, any>)
   if (token)
     headers.accessToken = token

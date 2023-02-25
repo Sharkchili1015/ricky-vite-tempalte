@@ -16,7 +16,9 @@
     "paths": {
       "@store/*": ["src/store/*"],
       "@pages/*": ["src/pages/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@http/*": ["src/http/*"],
+      "@utils/*": ["src/utils/*"],
     }
   },
   "include": [

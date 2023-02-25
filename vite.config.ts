@@ -11,6 +11,9 @@ const alias: Record<string, string> = {
   '@store': resolve(__dirname, 'src', 'store'),
   '@pages': resolve(__dirname, 'src', 'pages'),
   '@hooks': resolve(__dirname, 'src', 'hooks'),
+  '@http': resolve(__dirname, 'src', 'http'),
+  '@utils': resolve(__dirname, 'src', 'utils'),
+  'mock': resolve(__dirname, 'mock'),
 
 }
 // https://vitejs.dev/config/
