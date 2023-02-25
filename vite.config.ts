@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import { vitePlugins } from './_vitePlugins'
+///
 
 /** 设置别名 */
 const alias: Record<string, string> = {
