@@ -14,7 +14,11 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@store/*": ["src/store/*"],
+      "@pages/*": ["src/pages/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@http/*": ["src/http/*"],
+      "@utils/*": ["src/utils/*"],
     }
   },
   "include": [
@@ -28,5 +32,6 @@
   ],
   "exclude": ["node_modules", ".vscode-test"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "types": ["vite/client"] // 👈 add this
+  "types": ["vite/client"], // 👈 add this
+  "rootDirs": ["src/pages", "src/store", "src/hooks"]
 }

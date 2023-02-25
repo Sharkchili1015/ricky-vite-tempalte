@@ -1,16 +1,19 @@
 import { resolve } from 'path'
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import { vitePlugins } from './_vitePlugins'
-/** 路径查找 */
-const pathResolve = (dir: string): string => {
-  return resolve(__dirname, '.', dir)
-}
 
 /** 设置别名 */
 const alias: Record<string, string> = {
-  '@': pathResolve('src'),
+  'src': resolve(__dirname, 'src'),
+  '@store': resolve(__dirname, 'src', 'store'),
+  '@pages': resolve(__dirname, 'src', 'pages'),
+  '@hooks': resolve(__dirname, 'src', 'hooks'),
+  '@http': resolve(__dirname, 'src', 'http'),
+  '@utils': resolve(__dirname, 'src', 'utils'),
+  'mock': resolve(__dirname, 'mock'),
 
 }
 // https://vitejs.dev/config/
