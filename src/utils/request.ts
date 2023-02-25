@@ -1,17 +1,11 @@
 import axios from 'axios'
-import { useAxios } from '@vueuse/integrations/useAxios'
-import type { AxiosRequestConfig } from 'axios'
-
-export interface Response<T> {
-  isSuccess: boolean
-  code: string | number
-  msg: string
-  subCode?: any
-  subMsg?: any
-  args?: any
-  result: T
-  success: boolean
-  fail: boolean
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { defaults } from 'lodash-es'
+import { useUserStore } from '@store/mouldes/user'
+interface RequestResult<T = unknown> {
+  msg: string | undefined
+  code: string
+  data: T
 }
 const defaultConfig: AxiosRequestConfig = {
   baseURL: '/api',
@@ -46,28 +40,66 @@ instance.interceptors.response.use((res) => {
   return res
 })
 
-export {
-  instance,
+function request<T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  const { getToken } = useUserStore()
+  const token = getToken()
+  const headers = config?.headers ?? ({} as Record<string, any>)
+  if (token)
+    headers.accessToken = token
+
+  else if (url !== 'authorize/login')
+    throw new Error('token is empty')
+
+  const option = defaults<AxiosRequestConfig, AxiosRequestConfig>(
+    config || {},
+    {
+      url,
+      method: 'GET',
+      headers,
+      timeout: 20 * 1000,
+    },
+  )
+
+  return instance.request(option)
 }
 
-export function usePost<T>(url: string, postData: any) {
-  const { data, isLoading, isFinished, execute } = useAxios<Response<T>>(url, { method: 'post', data: postData }, instance, {
-    immediate: false,
-  })
-  return {
-    data,
-    isFinished,
-    isLoading,
-    execute,
-  }
+export function get<T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  return request(url, config)
 }
 
-export function useGet<T>(url: string, options?: Record<string, any>, params?: T) {
-  const { data, isLoading, isFinished, execute } = useAxios(url, { method: 'get', params }, instance, options)
-  return {
-    data,
-    isFinished,
-    isLoading,
-    execute,
-  }
+export function post<T>(
+  url: string,
+  data: Record<string, any>,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  return request(url, defaults({ data, method: 'POST' }, config))
+}
+
+export function patch<T>(
+  url: string,
+  data: Record<string, any>,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  return request(url, defaults({ data, method: 'PATCH' }, config))
+}
+
+export function update<T>(
+  url: string,
+  data: Record<string, any>,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  return request(url, defaults({ data, method: 'POST' }, config))
+}
+
+export function del<T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<RequestResult<T>>> {
+  return request(url, defaults({ method: 'DELETE' }, config))
 }
