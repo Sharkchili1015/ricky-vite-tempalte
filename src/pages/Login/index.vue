@@ -49,6 +49,8 @@ import type { LoginForm } from '@model/user'
 import type { FormInstance } from 'element-plus'
 import { useUserInfoStore } from '@store/mouldes/user'
 
+const router = useRouter()
+console.log('🚀 ~ file: index.vue:53 ~ router:', router)
 const store = useUserInfoStore()
 const formRef = ref<FormInstance>()
 const loginForm = reactive<LoginForm>({
@@ -59,9 +61,11 @@ const loginForm = reactive<LoginForm>({
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl)
     return
-  formEl.validate((valid) => {
+  formEl.validate(async (valid) => {
     if (valid) {
-      store.Login(loginForm)
+      const res = await store.Login(loginForm)
+      if (res?.token)
+        router.push('/home')
     }
     else {
       console.log('error submit!')
