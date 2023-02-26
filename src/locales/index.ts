@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n'
 import type { App } from 'vue'
 import type { I18n } from 'vue-i18n'
 
-const i18nOptions = {
+export const i18nOptions = {
   locale: 'ja',
   message: {
     en: {
@@ -16,9 +16,11 @@ const i18nOptions = {
       },
     },
   },
+  legacy: false,
 }
 
 export function setupI18n(app: App) {
+  console.log('i18nOptions', i18nOptions)
   const i18n = createI18n(i18nOptions) as I18n
   app.use(i18n)
 }

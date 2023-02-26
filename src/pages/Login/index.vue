@@ -28,7 +28,7 @@
       >
         <el-input
           v-model.number="loginForm.passWord"
-          type="text"
+          type="password"
           autocomplete="off"
         />
       </el-form-item>
