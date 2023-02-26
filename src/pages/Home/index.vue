@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ t('message.hello') }}</h1>
+  <h1>{{ t('hello.hi') }}</h1>
   <el-select v-model="lang" class="m-2" placeholder="i18n" size="large">
     <el-option
       v-for="item in options"
@@ -20,11 +20,11 @@ const { lang } = toRefs(useLocalesStore())
 const { t } = useI18n()
 const options = [
   {
-    value: 'en',
+    value: 'zh-EN',
     label: '英语',
     key: 0,
   }, {
-    value: 'ja',
+    value: 'zh-CN',
     label: '家乡话',
     key: 1,
   },
