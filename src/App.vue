@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <el-config-provider :locale="lang">
     <RouterView />
-  </div>
+  </el-config-provider>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useLocalesStore } from '@store/mouldes/locales'
+const { lang } = toRefs(useLocalesStore())
+</script>
 
 <style scoped>
 .logo {

@@ -13,6 +13,7 @@ const alias: Record<string, string> = {
   '@hooks': resolve(__dirname, 'src', 'hooks'),
   '@http': resolve(__dirname, 'src', 'http'),
   '@utils': resolve(__dirname, 'src', 'utils'),
+  '@model': resolve(__dirname, 'src', 'model'),
   'mock': resolve(__dirname, 'mock'),
 
 }
