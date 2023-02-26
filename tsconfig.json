@@ -19,6 +19,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@http/*": ["src/http/*"],
       "@utils/*": ["src/utils/*"],
+      "@model/*": ["src/model/*"],
     }
   },
   "include": [
